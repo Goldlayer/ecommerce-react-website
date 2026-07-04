@@ -1,0 +1,126 @@
+/* Container wrapper to fill viewport and center content */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Card layout */
+.loginContainer {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.loginContainer h2 {
+    color: #333333;
+    margin-bottom: 8px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #666666;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+/* Form fields positioning */
+.inputGroup {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.inputGroup label {
+    display: block;
+    margin-bottom: 8px;
+    color: #444444;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.inputGroup input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.inputGroup input:focus {
+    border-color: #4a90e2;
+}
+
+/* Inline horizontal controls */
+.formActions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 24px;
+}
+
+.rememberMe {
+    color: #555555;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.forgotPassword {
+    color: #4a90e2;
+    text-decoration: none;
+}
+
+.forgotPassword:hover {
+    text-decoration: underline;
+}
+
+/* Interactive primary button */
+.submitBtn {
+    width: 100%;
+    padding: 12px;
+    background-color: #4a90e2;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submitBtn:hover {
+    background-color: #357abd;
+}
+
+/* Alternative option link placement */
+.signupLink {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 14px;
+    color: #666666;
+}
+
+.signupLink a {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signupLink a:hover {
+    text-decoration: underline;
+}

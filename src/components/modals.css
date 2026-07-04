@@ -1,0 +1,72 @@
+/* Dark translucent overlay backdrop covering the whole screen */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px); /* Modern frosted-glass effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* The actual white alert popup container card box framework layout */
+.modal-content {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    animation: modalScaleUp 0.2s ease-out; /* Pop-in transition animation */
+}
+
+.modal-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #333333;
+}
+
+.modal-message {
+    color: #666666;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+/* Align buttons cleanly to the right hand corner boundary */
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.btn-danger-modal {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-danger-modal:hover {
+    background-color: #e04343;
+}
+
+/* Scale animation framework definitions */
+@keyframes modalScaleUp {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

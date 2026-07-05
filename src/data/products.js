@@ -1,3 +1,15 @@
+import React from "react";
+import blackToYellow from "../assets/images/12-inch-Black-to-yellow.webp";
+import brownBodyWave from "../assets/images/18-Inch-Highlighted-Brown-Body-Wave-Lace.webp";
+import boneStraightBrazillianVirgin from '../assets/images/Bone-Straight-Brazillian-Virgin-Human-Hair.webp'
+import bouncingSmallKinky from "../assets/images/Bouncing-Small-kinky-Glueless-Wig.jpg";
+import brazillianHuman from "../assets/images/Brazillian-Human-Hair-Wig.webp";
+import chocolateBrownShort from "../assets/images/Chocolate-Brown-Short-Straight-Bob-Wig.webp";
+import frontalLaceHdBob from "../assets/images/Frontal-Lace-hd-Bob-Wig.webp";
+import jerryCurlyBob from "../assets/images/Jerry-Curly-Bob-Wig.webp";
+import qualityHighlightBodyWaveBob from "../assets/images/Quality-Highlight-Body-Wave-Bob-Wig-Human-Hair.webp";
+import uniqueShortStraight from "../assets/images/Unique-Short-Straight-Bob-Wig.webp";
+
 // products.js
 // Array of 30 products with realistic image URLs across different categories
 
@@ -7,7 +19,7 @@ const products = [
     id: 1,
     name: "Synthetic Straight Wig - Silky Touch",
     price: 89.99,
-    image: "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=500&h=500&fit=crop",
+    image: blackToYellow,
     description: "High-quality synthetic straight wig with natural silky texture. Heat-resistant up to 350°F.",
     category: "hair",
     stockCount: 45,
@@ -17,7 +29,7 @@ const products = [
     id: 2,
     name: "Human Hair Curly Bundle - 100% Remy",
     price: 249.99,
-    image: "https://images.unsplash.com/photo-1525498128493-380d1990a112?w=500&h=500&fit=crop",
+    image: brownBodyWave,
     description: "Premium 100% Remy human hair curly bundle. Virgin hair, cuticle intact, tangle-free.",
     category: "hair",
     stockCount: 18,
@@ -27,7 +39,7 @@ const products = [
     id: 3,
     name: "Synthetic Bob Wig - Heat Friendly",
     price: 69.99,
-    image: "https://images.unsplash.com/photo-1560869713-da2a3c6f8b2f?w=500&h=500&fit=crop",
+    image: boneStraightBrazillianVirgin,
     description: "Chic synthetic bob wig with heat-friendly fibers. Can be styled with low heat tools.",
     category: "hair",
     stockCount: 32,
@@ -37,7 +49,7 @@ const products = [
     id: 4,
     name: "Human Hair Lace Front Wig - Straight",
     price: 389.99,
-    image: "https://images.unsplash.com/photo-1588854337236-5189cb0f2d6f?w=500&h=500&fit=crop",
+    image: bouncingSmallKinky,
     description: "Luxury human hair lace front wig with natural hairline. 100% virgin Remy hair.",
     category: "hair",
     stockCount: 12,
@@ -47,7 +59,7 @@ const products = [
     id: 5,
     name: "Synthetic Kinky Curly Wig",
     price: 79.99,
-    image: "https://images.unsplash.com/photo-1588854337115-1c67d9247e4b?w=500&h=500&fit=crop",
+    image: brazillianHuman,
     description: "Voluminous kinky curly synthetic wig. Perfect for natural-looking textured styles.",
     category: "hair",
     stockCount: 28,
@@ -57,8 +69,8 @@ const products = [
     id: 6,
     name: "Blend Hair Water Wave Wig (Human/Synthetic Mix)",
     price: 159.99,
-    image: "https://images.unsplash.com/photo-1588854337236-5189cb0f2d6f?w=500&h=500&fit=crop",
-    description: "Premium blend of human and synthetic hair for a natural look with added durability.",
+    image: chocolateBrownShort,
+    description: "Beautiful water wave blend wig combining human and synthetic fibers for a natural look.",
     category: "hair",
     stockCount: 22,
     rating: 4.5
@@ -67,8 +79,8 @@ const products = [
     id: 7,
     name: "Human Hair Deep Wave Bundles",
     price: 299.99,
-    image: "https://images.unsplash.com/photo-1525498128493-380d1990a112?w=500&h=500&fit=crop",
-    description: "Set of 3 deep wave human hair bundles. 100% Remy, no shedding, long-lasting.",
+    image: frontalLaceHdBob,
+    description: "Beautiful deep wave human hair bundles. 100% Remy, no shedding, long-lasting.",
     category: "hair",
     stockCount: 15,
     rating: 4.7
@@ -77,7 +89,7 @@ const products = [
     id: 8,
     name: "Synthetic Pixie Cut Wig",
     price: 59.99,
-    image: "https://images.unsplash.com/photo-1560869713-da2a3c6f8b2f?w=500&h=500&fit=crop",
+    image: jerryCurlyBob,
     description: "Short and sassy synthetic pixie cut wig. Lightweight and comfortable for daily wear.",
     category: "hair",
     stockCount: 40,
@@ -87,7 +99,7 @@ const products = [
     id: 9,
     name: "Blend Hair Ombre Lace Wig",
     price: 189.99,
-    image: "https://images.unsplash.com/photo-1588854337115-1c67d9247e4b?w=500&h=500&fit=crop",
+    image: qualityHighlightBodyWaveBob,
     description: "Ombre blend hair lace wig. Combines natural human hair with high-quality synthetic.",
     category: "hair",
     stockCount: 20,
@@ -97,7 +109,7 @@ const products = [
     id: 10,
     name: "Human Hair Closure - 4x4 Silk Base",
     price: 179.99,
-    image: "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=500&h=500&fit=crop",
+    image: uniqueShortStraight,
     description: "4x4 silk base human hair closure. Natural parting space, pre-plucked hairline.",
     category: "hair",
     stockCount: 25,

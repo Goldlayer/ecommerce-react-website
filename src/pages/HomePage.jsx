@@ -8,8 +8,8 @@ export default function  HomePage() {
     return ( 
         <div className='page'>
             <div className='home-hero'>
-                <h1 className='home-title'>Welcome To ShopHub</h1>
-                <p className='hpme-subtitle'>Discover amazing products at great prices</p>
+                <h1 className='home-title'>Welcome To <strong>JoyShop</strong></h1>
+                <p className='home-subtitle'>Discover amazing products at great prices</p>
             </div>
             <div className='container'>
                 <h2 className='page-title'>Our Products</h2>

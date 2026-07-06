@@ -25,15 +25,222 @@ body {
   line-height: 1.6;
 }
 
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1; /* Automatically stretches to fill empty space, pinning footer to bottom */
+}
+
 /* ==========================================================================
-   ✨ PREMIUM SECTOR: FROSTED GLASS PURPLE MIX NAVBAR
+   ✨ PREMIUM SECTOR: FULLSCREEN DEEP PURPLE CAROUSEL LANDING
+   ========================================================================== */
+
+/* Remove default padding bounds so the slider reaches edges perfectly */
+.home-page-container {
+  padding: 0 !important;
+}
+
+.hero-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  /* Fills screen completely, cleanly factoring sticky navigation heights */
+  height: calc(100vh - 80px); 
+  overflow: hidden;
+  /* Deep purple premium gradient behind backplanes for loading state safety shields */
+  background: linear-gradient(135deg, #130f40 0%, #1e1938 100%); 
+}
+
+/* 🖼️ INDIVIDUAL SLIDE SHIELDS STRATEGIES */
+.carousel-slide-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  /* Hidden by default with an elegant opacity fade transition blend */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+  z-index: 1;
+}
+
+.slide-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+/* Dark atmospheric vignette filter protecting white text readabilities */
+.slide-overlay-tint {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(30, 25, 56, 0.45) 0%, rgba(19, 15, 64, 0.85) 100%);
+  z-index: 3;
+}
+
+.slide-content-box {
+  position: relative;
+  z-index: 4;
+  max-width: 850px;
+  padding: 0 2rem;
+  /* Subtle slide lift animation whenever standard items become active */
+  animation: slideTextUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.slide-promo-badge {
+  background-color: var(--accent-pink);
+  color: var(--white);
+  padding: 0.45rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 30px;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(253, 121, 168, 0.4);
+}
+
+.hero-carousel-wrapper .home-title {
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  letter-spacing: -1.5px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.hero-carousel-wrapper .home-subtitle {
+  font-size: 1.4rem;
+  color: #eae6f8;
+  max-width: 600px;
+  margin: 0 auto;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* 🎛️ ARROW BUTTON CONTROLS NAVIGATION MAPS */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.carousel-arrow:hover {
+  background-color: var(--primary-purple);
+  border-color: var(--primary-purple);
+  box-shadow: 0 0 15px rgba(108, 92, 231, 0.4);
+}
+
+.arrow-left { left: 2rem; }
+.arrow-right { right: 2rem; }
+
+/* ⏬ ANIMATED BOUNCING SCROLL DOWN INDICATOR */
+.scroll-down-anchor-btn {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--white);
+  border: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  animation: anchorBounce 2s infinite; /* Permanent bounce sequence logic loop */
+}
+
+.scroll-arrow-icon {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--primary-purple);
+}
+
+/* 🏔️ CATALOG ANCHOR ZONE SECTION SETTINGS */
+.catalog-section-anchor {
+  padding: 5.5rem 2rem 6rem 2rem !important;
+}
+
+/* 🎬 KEYFRAME ANIMATIONS LAYERS */
+@keyframes slideTextUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes anchorBounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50__) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px); /* Bounces upward dynamically */
+  }
+  60% {
+    transform: translateX(-50%) translateY(-4px);
+  }
+}
+
+/* Responsive adjustment adjustments mapping layouts onto narrow mobile display frames */
+@media (max-width: 768px) {
+  .hero-carousel-wrapper .home-title { font-size: 2.5rem; }
+  .hero-carousel-wrapper .home-subtitle { font-size: 1.1rem; }
+  .carousel-arrow { width: 44px; height: 44px; font-size: 1.8rem; }
+  .arrow-left { left: 0.75rem; }
+  .arrow-right { right: 0.75rem; }
+}
+
+
+/* ==========================================================================
+   🔮 PREMIUM SECTOR: DEEP PURPLE INTEGRATED STICKY NAVBAR
    ========================================================================== */
 
 .navbar {
-  background-color: rgba(255, 255, 255, 0.85); /* Translucent white foundation */
-  backdrop-filter: blur(12px); /* Modern frosted-glass effect */
+  /* 🌟 Modified to match the deep eggplant purple theme background of the hero section */
+  background-color: #1e1938; 
+  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(108, 92, 231, 0.08); /* Soft purple tint boundary line */
+  /* Tinted semi-translucent boundary accent stroke line underneath */
+  border-bottom: 1px solid rgba(108, 92, 231, 0.15); 
   padding: 0.85rem 0;
   position: sticky;
   top: 0;
@@ -51,11 +258,11 @@ body {
   height: 52px;
 }
 
-/* 🏷️ LOGO STYLING */
+/* Crisp pure-white text logo setup */
 .navbar-brand {
   font-size: 1.65rem;
   font-weight: 900;
-  color: var(--primary-purple);
+  color: var(--white); /* 🌟 White logo contrast over deep dark purple */
   text-decoration: none;
   letter-spacing: -0.75px;
   display: flex;
@@ -68,86 +275,423 @@ body {
   transform: scale(1.02);
 }
 
-.brand-icon {
-  font-size: 1.4rem;
+/* 🌟 BUTTON-STYLE MENU NAVIGATION ITEMS AND ACTIVE STATES */
+.navbar-links {
+  display: flex;
+  gap: 1rem; /* Compact layout space for neighboring button shapes */
+  align-items: center;
 }
 
-/* 🔗 LINKS MENU LAYOUT & HOVER EFFECTS */
+/* Transforms the text links into structured translucent button containers */
+.btn-nav-link {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  color: #b0a8cf !important; /* Soft purple-toned gray text */
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  padding: 0.55rem 1.25rem !important;
+  border-radius: 10px !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  text-decoration: none;
+}
+
+.btn-nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: var(--white) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* 🌟 AUTOMATIC ACTIVE LAYER HIGHLIGHT (Triggered by React Router NavLink) */
+.btn-nav-link.active {
+  background-color: var(--primary-purple) !important; /* Royal Purple */
+  color: var(--white) !important;
+  border-color: var(--primary-purple) !important;
+  box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+}
+
+/* 🛍️ INTEGRATED NAVIGATION SHIELD ADJUSTMENTS */
 .navbar-interactive-menu {
   display: flex;
   align-items: center;
-  gap: 3rem; /* Spacious separation gap */
+  gap: 2rem;
 }
 
-.navbar-links {
-  display: flex;
-  gap: 2.2rem;
-  align-items: center;
-}
-
-.navbar-link {
-  color: var(--text-main);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.05rem;
-  position: relative;
-  padding: 0.4rem 0;
-  transition: color 0.25s ease;
-}
-
-.navbar-link:hover {
-  color: var(--primary-purple);
-}
-
-/* Animated interactive line indicator hanging below link items */
-.navbar-link::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: var(--primary-purple);
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-
-.navbar-link:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-/* 🛍️ CART ICON SECTOR BADGE CORRECTIONS */
 .cart-link-container {
-  padding-right: 14px;
+  padding-right: 22px !important;
 }
 
 .cart-badge {
-  position: absolute;
-  top: -2px;
+  position: relative;
+  top: -10px;
   right: -10px;
-  background-color: var(--accent-pink); /* High conversion hot pink */
+  background-color: var(--accent-pink);
   color: var(--white);
-  font-size: 10px;
-  font-weight: 800;
+  font-size: 15px;
+  font-weight: bolder;
   min-width: 18px;
-  height: 18px;
-  padding: 0 4px;
+  height: 22px;
+  padding: 0 6px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 3px 10px rgba(253, 121, 168, 0.45);
-  border: 1px solid var(--white); /* White boundary outline separation ring */
+  border: 1px solid #1e1938; /* Separates the pink dot with the dark purple menu frame background line */
 }
 
-/* 🎛️ PREMIUM BUTTON OVERRIDES FOR AUTH MODES */
+/* 🎛️ AUTHENTICATION BUTTON OVERRIDES IN DARK ENVIRONMENT */
 .navbar-auth-links {
   display: flex;
   gap: 0.85rem;
   align-items: center;
 }
+
+.navbar-auth-links .btn {
+  padding: 0.55rem 1.25rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+/* Login link styled as a solid secondary white-neutral option overlay */
+.btn-login-nav {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-login-nav:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+/* SignUp button remains vibrant pink-red highlight conversion focus */
+.btn-signup-nav {
+  background-color: var(--accent-pink);
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(253, 121, 168, 0.2);
+}
+
+.btn-signup-nav:hover {
+  background-color: var(--accent-pink-hover);
+  box-shadow: 0 6px 20px rgba(253, 121, 168, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Profile button visibility changes over dark header background surfaces */
+.btn-profile {
+  background-color: rgba(255, 255, 255, 0.05) !important; /* Soft backdrop base */
+  color: #f3f0ff !important;                   /* 🌟 High visibility off-white lilac text */
+  border: 1px solid rgba(181, 168, 239, 0.3) !important; /* Soft matching lilac border stroke */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-profile:hover {
+  background-color: var(--primary-purple) !important; /* 🌟 Illuminates rich royal purple on hover */
+  border-color: var(--primary-purple) !important;
+  color: var(--white) !important;
+  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+  transform: translateY(-1px);
+}
+
+
+.btn-logout {
+  background-color: rgba(255, 77, 77, 0.1);
+  color: #ff6b6b;
+  border: 1px solid rgba(255, 77, 77, 0.2);
+}
+
+.btn-logout:hover {
+  background-color: #ff4d4d;
+  color: var(--white);
+  border-color: #ff4d4d;
+}
+
+
+/* ==========================================================================
+   🛒 PREMIUM SECTOR: TOTALS & TWO-COLUMN SIDEBAR CHECKOUT LAYOUT
+   ========================================================================== */
+
+/* 📦 MAIN STRUCTURAL GRID WRAPPERS */
+.checkout-two-column-layout {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .checkout-two-column-layout {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .checkout-summary-receipt-card {
+    max-width: 100% !important;
+  }
+}
+
+.checkout-items-list-pane {
+  flex: 1;
+}
+
+/* 🧾 TOP SECTION CONTROL NAVIGATION BAR BAR */
+.checkout-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #f1eff7;
+  padding-bottom: 12px;
+}
+
+.checkout-header-row .checkout-section-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1e1938;
+}
+
+.clear-cart-btn {
+  background-color: #fff1f1;
+  color: #ff4d4d;
+  border: 1px solid #ffcccc;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-cart-btn:hover {
+  background-color: #ff4d4d;
+  color: var(--white);
+  border-color: #ff4d4d;
+}
+
+/* 🖼️ PIXEL-PERFECT BALANCED ROW ELEMENT LAYOUTS */
+.checkout-item {
+  background-color: var(--white);
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center; /* Enforces precise vertical alignment across the row */
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(108, 92, 231, 0.05);
+  box-shadow: 0 4px 12px rgba(108, 92, 231, 0.01);
+}
+
+/* 🌟 Image Fix: Force standard structural dimensions so frames never shift */
+.checkout-item-image {
+  width: 90px;
+  height: 90px;
+  min-width: 90px;  /* Prevents flex from compressing the image size */
+  min-height: 90px; /* Prevents text boxes from shrinking image aspect ratios */
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+  background-color: var(--light-lilac);
+  border: 1px solid rgba(108, 92, 231, 0.03);
+}
+
+/* Text Core Container Frame Details */
+.checkout-item-details {
+  flex: 2; /* Allocates more room for description text wraps */
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.checkout-item-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+
+.checkout-item-category {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.8px;
+}
+
+.checkout-item-price {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Right-aligned interactive dynamic control cluster zones */
+.checkout-item-controls {
+  flex: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Snaps control components level to the right edge */
+  gap: 2rem;
+}
+
+@media (max-width: 640px) {
+  .checkout-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .checkout-item-controls {
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid #f1eff7;
+    padding-top: 0.75rem;
+  }
+}
+
+/* 🔢 QUANTITY ADJUSTER SECTOR BUTTON HOOKS */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  background-color: #faf9fd;
+  border-radius: 10px;
+  border: 1px solid #e2e0e9;
+  padding: 3px;
+  height: 38px;
+}
+
+.quantity-btn {
+  background: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.quantity-btn:hover {
+  background-color: #eae6f8;
+  color: var(--primary-purple);
+}
+
+.quantity-value {
+  padding: 0 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  min-width: 30px;
+  text-align: center;
+}
+
+.checkout-item-total {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary-purple);
+  min-width: 80px;
+  text-align: right;
+}
+
+.remove-item-link-btn {
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.remove-item-link-btn:hover {
+  color: #d63031;
+}
+
+/* 🏛️ SHIPPING FORM BOX GRID AND INPUT ALIGNMENTS */
+.checkout-summary-receipt-card {
+  width: 100%;
+  max-width: 380px;
+  background-color: var(--white);
+  border-radius: 24px;
+  padding: 2.2rem;
+  box-shadow: 0 20px 40px rgba(108, 92, 231, 0.04);
+  border: 1px solid rgba(108, 92, 231, 0.05);
+  position: sticky;
+  top: 100px; /* Framework keeps checkout details visible on desktop scrolling movements */
+}
+
+.checkout-shipping-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.checkout-shipping-form .form-group {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* 📊 CALCULATION DISPLAY PANELS ROW STYLES */
+.checkout-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.checkout-total-label {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.checkout-total-value {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.summary-divider {
+  border: 0;
+  border-top: 1px solid #f1eff7;
+  margin: 1.25rem 0;
+}
+
+.checkout-total-final {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--primary-purple);
+}
+
+.checkout-pay-btn {
+  width: 100%;
+  height: 52px;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px rgba(108, 92, 231, 0.25);
+  margin-top: 0.5rem;
+}
+
+.checkout-pay-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(108, 92, 231, 0.35);
+}
+
+.checkout-items-count {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-top: -1.25rem;
+  margin-bottom: 2rem;
+}
+
 
 /* Base structural adjustments for navbar specific mini-buttons */
 .navbar-auth-links .btn {
@@ -345,7 +889,7 @@ body {
   position: absolute;
   left: 0;
   bottom: -6px;
-  width: 150px;
+  width: 100%;
   height: 4px;
   background-color: var(--accent-pink);
   border-radius: 2px;
@@ -604,3 +1148,166 @@ body {
   }
 }
 
+/* ==========================================================================
+   ✨ PREMIUM SECTOR: DEEP PURPLE ACCENT FOOTER STRUCTURE
+   ========================================================================== */
+
+.footer {
+  background-color: #1e1938; /* Deep rich eggplant dark purple base */
+  color: #eae6f8; /* Soft lilac tint text readability color */
+  padding: 4.5rem 0 3.5rem 0;
+  margin-top: auto; /* 🌟 Pushes footer permanently to bottom if pages have zero content items */
+  border-top: 4px solid var(--primary-purple);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap; /* Supports folding segments layout onto phone columns screen dimensions */
+}
+
+/* 🏢 COLUMN SPECIFIC WIDTH RESTRAINTS */
+.footer-brand-column {
+  flex: 1.5;
+  min-width: 250px;
+}
+
+.footer-links-column {
+  flex: 1;
+  min-width: 160px;
+}
+
+.footer-newsletter-column {
+  flex: 1.5;
+  min-width: 260px;
+}
+
+/* 📝 TYPOGRAPHY & LINKS SPECIFICS */
+.footer-logo {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--white);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-tagline {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #b0a8cf; /* Soft gray-purple readability blend */
+  margin-bottom: 1.5rem;
+  max-width: 320px;
+}
+
+.footer-copyright {
+  font-size: 0.85rem;
+  color: #8c82b3;
+}
+
+.footer-header {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.footer-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-link, .footer-link-static {
+  color: #b0a8cf;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--white);
+  padding-left: 4px; /* Tiny dynamic step nudge animation on user focus */
+}
+
+/* 📬 NEWSLETTER INPUT INTEGRATION STYLING */
+.newsletter-text {
+  font-size: 0.95rem;
+  color: #b0a8cf;
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+}
+
+.footer-input-group {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(108, 92, 231, 0.2);
+  border-radius: 10px;
+  padding: 4px;
+  overflow: hidden;
+}
+
+.footer-input-group:focus-within {
+  border-color: var(--primary-purple);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+}
+
+.footer-input {
+  background: none;
+  border: none;
+  flex: 1;
+  padding: 0.6rem 0.85rem;
+  color: var(--white);
+  font-size: 0.95rem;
+}
+
+.footer-input:focus {
+  outline: none;
+}
+
+.footer-input::placeholder {
+  color: #6d6493;
+}
+
+.footer-input-error {
+  border-color: #ff4d4d !important;
+}
+
+.footer-btn {
+  padding: 0.5rem 1.25rem !important;
+  font-size: 0.9rem !important;
+  border-radius: 6px !important;
+}
+
+.footer-error-text {
+  color: #ff4d4d;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.4rem;
+  padding-left: 4px;
+}
+
+.footer-success-text {
+  color: #2ecc71;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  padding-left: 4px;
+}
+
+/* Responsive adjustment layer folding down columns on phone screens */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+}

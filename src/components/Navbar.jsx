@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router"; // 💡 Imported NavLink instead of generic Link for active tracking
 import { useAuth } from "../context/AuthContext";
 import { useCart } from '../context/CartContext';
 
@@ -28,15 +28,19 @@ export default function Navbar() {
                 {/* Nav Links & Functional Controls Menu */}
                 <div className="navbar-interactive-menu">
                     <div className="navbar-links">
-                        <Link to='/' className="navbar-link">Home</Link>
-                        <Link to='/checkout' className="navbar-link cart-link-container">
+                        {/* 🌟 Use NavLink for automated conditional .active tracking */}
+                        <NavLink to='/' className="btn btn-nav-link">
+                            Home
+                        </NavLink>
+                        
+                        <NavLink to='/checkout' className="btn btn-nav-link cart-link-container">
                             <span className="cart-text">Cart</span>
                             {cartItemsTotal > 0 && (
                                 <span className="cart-badge">
                                     {cartItemsTotal > 9 ? '9+' : cartItemsTotal}
                                 </span>
                             )}
-                        </Link>
+                        </NavLink>
                     </div>
                     
                     {/* Authentication Link Group Buttons */}

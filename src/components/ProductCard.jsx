@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router'; // 💡 Imported Link for navigation
 import { useCart } from '../context/CartContext';
 
 export default function ProductCard({ product }) {
@@ -6,13 +7,8 @@ export default function ProductCard({ product }) {
 
     return (
         <div className="product-card">
-            {/* Strict locked-height frame */}
             <div className="product-card-image-wrapper">
-                <img 
-                    src={product.image} 
-                    alt={product.name} 
-                    loading="lazy" /* Performance optimization */
-                />
+                <img src={product.image} alt={product.name} loading="lazy" />
                 {product.rating && (
                     <div className="product-card-rating">
                         ⭐ <span>{product.rating}</span>
@@ -20,7 +16,6 @@ export default function ProductCard({ product }) {
                 )}
             </div>
 
-            {/* Content box that dynamically fills card heights perfectly */}
             <div className="product-card-content">
                 <div className="product-card-text-block">
                     <p className="product-card-category">{product.category}</p>
@@ -29,14 +24,24 @@ export default function ProductCard({ product }) {
                     </h3>
                 </div>
                 
-                <div className="product-card-footer">
+                {/* 🌟 Buttons wrapper modified to place both actions side-by-side */}
+                <div className="product-card-footer product-card-action-split">
                     <p className="product-card-price">₦{product.price.toFixed(2)}</p>
-                    <button 
-                        className="btn btn-primary btn-sm product-card-btn"
-                        onClick={() => addToCart(product.id)}
-                    >
-                        + Add
-                    </button>
+                    
+                    <div className="product-card-btn-group">
+                        <Link 
+                            to={`/products/${product.id}`} 
+                            className="btn btn-details-link"
+                        >
+                            👁️ View
+                        </Link>
+                        <button 
+                            className="btn btn-primary product-card-btn"
+                            onClick={() => addToCart(product.id)}
+                        >
+                            + Add
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

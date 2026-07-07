@@ -1311,3 +1311,361 @@ body {
     gap: 2.5rem;
   }
 }
+
+/* ==========================================================================
+   ✨ PREMIUM SECTOR: PRODUCT GRID ACTIONS SPLIT & VIEW DETAILS PAGE
+   ========================================================================== */
+
+/* 🎛️ BUTTON GROUPING FOR HOMEPAGE PRODUCT CARDS */
+.product-card-action-split {
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 0.85rem;
+}
+
+.product-card-btn-group {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.product-card-btn-group .btn {
+  flex: 1; /* Symmetrically splits button widths level across the baseline wrapper */
+}
+
+.btn-details-link {
+  background-color: var(--light-lilac) !important;
+  color: var(--primary-purple) !important;
+  border: 1px solid rgba(108, 92, 231, 0.1) !important;
+  font-size: 0.85rem !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-details-link:hover {
+  background-color: #e5dbff !important;
+  color: var(--primary-hover) !important;
+}
+
+/* 🏔️ FULL PRODUCT DETAILS VIEW PORT STRUCTURE LAYOUTS */
+.product-details-viewport {
+  padding: 3.5rem 0 6rem 0;
+  background-color: var(--bg-main);
+}
+
+.back-catalog-link {
+  color: var(--primary-purple);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  display: inline-block;
+  margin-bottom: 2rem;
+  transition: transform 0.2s ease;
+}
+
+.back-catalog-link:hover {
+  transform: translateX(-4px); /* Interactive nudge on highlight focus movement */
+}
+
+.product-details-grid-wrapper {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* Splits layout unevenly, emphasizing the photo container grid */
+  gap: 4rem;
+  background-color: var(--white);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 20px 50px rgba(108, 92, 231, 0.03);
+  border: 1px solid rgba(108, 92, 231, 0.04);
+}
+
+@media (max-width: 912px) {
+  .product-details-grid-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 2rem;
+  }
+}
+
+/* 🖼️ IMAGE FRAME SPECIFICS */
+.product-details-image-frame {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  background-color: #fafafa;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(108, 92, 231, 0.05);
+}
+
+@media (max-width: 640px) {
+  .product-details-image-frame { height: 320px; }
+}
+
+.product-details-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.details-floating-rating {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 1.25rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #1e1938;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* 📄 INFORMATION PANE STYLING ELEMENT SHEETS */
+.product-details-info-pane {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Locks layout left-aligned flawlessly */
+  text-align: left;
+}
+
+.details-category-tag {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  background-color: var(--light-lilac);
+  padding: 0.35rem 0.85rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.details-product-title {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #1e1938;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.5px;
+}
+
+.details-price-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.details-current-price {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--primary-purple);
+}
+
+.details-stock-status {
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: 30px;
+}
+
+.details-stock-status.in-stock {
+  background-color: #e8f8f0;
+  color: #2ecc71;
+}
+
+.details-stock-status.out-of-stock {
+  background-color: #fff1f1;
+  color: #ff4d4d;
+}
+
+.details-divider {
+  border: 0;
+  border-top: 1px solid #f1eff7;
+  width: 100%;
+  margin: 1.75rem 0;
+}
+
+.details-description-block h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e1938;
+  margin-bottom: 0.5rem;
+}
+
+.details-description-block p {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* 🛍️ QUANTITY TRACKERS ADJUSTERS HOOK */
+.details-actions-control-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.details-quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.selector-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e1938;
+}
+
+/* Guarantees quantity indicators maintain accessible visibility contrast */
+.text-dark-controls .quantity-value {
+  color: var(--text-main) !important;
+}
+
+.details-submit-cart-btn {
+  width: 100%;
+  height: 52px;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px rgba(108, 92, 231, 0.25);
+}
+
+.product-details-fallback {
+  text-align: center;
+  padding: 6rem 1rem;
+}
+
+.product-details-fallback h2 {
+  font-size: 2rem;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.product-details-fallback p {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+/* 🧘 SCREEN CAP AND HOOKS FOR FIXED HEIGHT VIEWPORTS */
+@media (min-width: 993px) {
+  .viewport-locked-frame {
+    height: calc(100vh - 80px); /* Locks view strictly within viewport bounds */
+    overflow: hidden;
+    padding: 1.5rem 0 !important;
+    display: flex;
+    align-items: center;
+  }
+
+  .details-fullscreen-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .locked-height-grid {
+    flex: 1;
+    height: calc(100% - 60px); /* Leaves exactly enough space for the back link line */
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    padding: 2rem !important;
+    overflow: hidden;
+  }
+
+  .locked-frame-image {
+    height: 100% !important; /* Forces image container card to match height grid bounds */
+  }
+
+  .locked-pane-scroll {
+    height: 100%;
+    overflow-y: auto; /* Adds a scrollbar only inside the info panel if text overflows */
+    padding-right: 1rem;
+  }
+}
+
+/* Subtle typography reduction tweaks to save vertical screen space */
+.viewport-locked-frame .details-product-title {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.viewport-locked-frame .details-divider {
+  margin: 1rem 0;
+}
+
+/* ⚠️ STYLIZED CHECKMATE ERROR CONTAINER WINDOW */
+.checkmate-warning-box {
+  background-color: #fff1f1;
+  color: #ff4d4d;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1px solid #ffcccc;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(255, 77, 77, 0.05);
+  animation: checkmateShake 0.3s ease-in-out; /* Attention shake animation */
+}
+
+/* Smooth keyframe shake for the warning banner */
+@keyframes checkmateShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+
+/* 🌟 HEADER BLOCK ROW LAYOUTS AND INLINE BANNER ALIGNMENTS */
+.details-top-navigation-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+/* Remove conflicting layout margins from the child links so the flex row stays level */
+.details-top-navigation-row .back-catalog-link {
+  margin-bottom: 0 !important;
+}
+
+/* 🟢 PREMIUM INLINE REASSURANCE NOTIFICATION BANNER */
+.details-inline-success-banner {
+  color: #2ecc71; /* Emerald Green */
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin: 0;
+  background-color: #f4fbf7; /* Very light tinted green background wrapper */
+  padding: 0.5rem 1.25rem;
+  border-radius: 30px;
+  border: 1px solid rgba(46, 204, 113, 0.15);
+  box-shadow: 0 4px 12px rgba(46, 204, 113, 0.05);
+  text-align: center;
+}
+
+/* Entry slide-in notification frame animation curves */
+.fade-slide-in {
+  animation: notificationFadeSlide 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes notificationFadeSlide {
+  from {
+    opacity: 0;
+    transform: translateX(10px); /* Fades in smoothly drifting in from the right edge */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

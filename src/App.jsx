@@ -8,6 +8,7 @@ import AuthProvider from './context/AuthContext'
 import ProductDetails from './pages/ProductDetails'
 import CartProvider from './context/CartContext'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <div className='app'>
           <Navbar />
           
-          {/* 🌟 FIX: Wrap routes inside a main tag to push footer cleanly to the baseline */}
+          <ScrollToTop />  {/* Listens globally to scroll the user to the top on every route change */}
+          
           <main className="main-content">
             <Routes>
               <Route path='/' element={<HomePage />} />
